@@ -7,7 +7,12 @@ def open(driver):
 	anchor.click()
 
 def like(driver):
-        likeButton = driver.find_element_by_css_selector(".coreSpriteHeartOpen")
-	likeButton.click()
+	try: 
+		likeButton = driver.find_element_by_css_selector(".coreSpriteHeartOpen")
+		likeButton.click()
+	except:
+		nextButton = driver.find_element_by_css_selector(".coreSpriteRightPaginationArrow")
+		nextButton.click()
 	nextButton = driver.find_element_by_css_selector(".coreSpriteRightPaginationArrow")
-	nextButton.click()
+        nextButton.click()
+
