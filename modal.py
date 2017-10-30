@@ -14,5 +14,5 @@ def like(driver):
 		nextButton = driver.find_element_by_css_selector(".coreSpriteRightPaginationArrow")
 		nextButton.click()
 	nextButton = driver.find_element_by_css_selector(".coreSpriteRightPaginationArrow")
-        nextButton.click()
+	nextButton.click()
 

@@ -1,23 +1,16 @@
+from multiprocessing.dummy import Pool as ThreadPool
 import sys
-import login
-import feed
-import time
 import getpass
-import navigate
-import modal
+import automate
+import itertools
 
-username = raw_input('Username: ')
+def strip(str):
+        return str.strip()
+
+username = input('Username: ')
 password = getpass.getpass('Password: ')
-driver = login.login(username, password)
-tag = raw_input('What tag would you like to navigate to?')
-navigate.tag(driver, tag)
-modal.open(driver)
-while True:
-	try:
-		modal.like(driver)
-	except Exception as e:
-		print e.__doc__
-		print e.message
-		navigate.tag(driver, tag)
-		modal.open(driver)		
-	time.sleep(3)
+tagsString = input('What tag(s) would you like to navigate to?')
+tags = list(map(strip, tagsString.split(',')))
+count = len(tags)
+pool = ThreadPool(count)
+pool.starmap(automate.automate, zip(itertools.repeat(username),itertools.repeat(password), tags))
