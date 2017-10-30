@@ -16,4 +16,4 @@ def automate(username, password, tag):
 			print(e.message)
 			navigate.tag(driver, tag)
 			modal.open(driver)
-		time.sleep(3)
+		time.sleep(30)
