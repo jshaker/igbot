@@ -9,7 +9,8 @@ def automate(username, password, tag):
 	modal.open(driver)
 	while True:
 		try:
-			modal.like(driver)
+			modal.follow(driver)
+			modal.next(driver)
 		except Exception as e:
 			print(e.__doc__)
 			print(e.message)
