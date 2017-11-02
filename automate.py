@@ -3,7 +3,7 @@ import time
 import navigate
 import modal
 
-def automate(username, password, tag):
+def automate(username, password, delay, tag):
 	driver = login.login(username, password)
 	navigate.tag(driver, tag)
 	modal.open(driver)
@@ -16,4 +16,4 @@ def automate(username, password, tag):
 			print(e.message)
 			navigate.tag(driver, tag)
 			modal.open(driver)
-		time.sleep(30)
+		time.sleep(delay)
