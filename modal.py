@@ -2,7 +2,11 @@ from selenium.common.exceptions import StaleElementReferenceException, NoSuchEle
 from selenium.webdriver.common.keys import Keys
 import sys
 
-def open(driver):
+def open_explore(driver):
+	anchor = driver.find_elements_by_css_selector("a")[7]
+	anchor.click()
+
+def open_tags(driver):
 	anchor = driver.find_element_by_css_selector("a")
 	anchor.click()
 
